@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Student</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/stylesheet.css}">
+</head>
+<body>
+<header>
+    <div class="hedermenu">
+        <button class="backbutton">
+            <img th:src="@{/images/backbutton.png}" alt="" onclick="window.history.back();">
+        </button>
+        <h1>Update Student Info</h1>
+    </div>
+</header>
+
+<h3>Update Details</h3>
+<div class="submissiondiv">
+    <label>Name: <input type="text" id="name" class="inputbox"></label><br>
+    <label>PRN: <input type="text" id="prn" class="inputbox" readonly></label><br>
+    <label>Roll No: <input type="number" id="roll_no" class="inputbox"></label><br>
+    <label>Department:
+        <select id="Department" class="inputbox">
+            <option value="Computer Science">Computer Science</option>
+            <option value="Information Technology">Information Technology</option>
+            <option value="Electronics and Teclecomunication">Electronics and Teclecomunication</option>
+            <option value="Mechanical Enginering">Mechanical Enginering</option>
+            <option value="Instrumation">Instrumation</option>
+            <option value="Chememical Enginering">Chememical Enginering</option>
+            <option value="other">Other</option>
+        </select>
+    </label><br>
+    <label>Address: <input type="text" id="address" class="inputbox"></label><br>
+    <label>Phone No: <input type="text" id="Phone_no" class="inputbox"></label><br>
+
+    <button class="submitbutton" onclick="submitUpdate()">Update</button>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+     const data = JSON.parse(localStorage.getItem("studentToUpdate"));
+     if (!data) {
+         alert("No student data found!");
+         window.location.href = "update_student.html";
+         return;
+     }
+     document.getElementById("name").value = data.name;
+     document.getElementById("prn").value = data.prn;
+     document.getElementById("roll_no").value = data.roll_no;
+     document.getElementById("Department").value = data.department; // corrected
+     document.getElementById("address").value = data.address;
+     document.getElementById("Phone_no").value = data.phone_no; // corrected
+ });
+
+ function submitUpdate() {
+     const updatedStudent = {
+         prn: parseInt(document.getElementById("prn").value),
+         name: document.getElementById("name").value,
+         roll_no: parseInt(document.getElementById("roll_no").value),
+         department: document.getElementById("Department").value, // corrected
+         address: document.getElementById("address").value,
+         phone_no: document.getElementById("Phone_no").value // corrected
+     };
+
+     fetch("/updatestudent", {
+         method: "POST",
+         headers: {
+             "Content-Type": "application/json"
+         },
+         body: JSON.stringify(updatedStudent)
+     })
+     .then(res => res.text())
+     .then(msg => {
+         alert(msg);
+         if (msg.includes("success")) {
+             localStorage.removeItem("studentToUpdate");
+             window.location.href = "/Allstudents";
+         }
+     })
+     .catch(() => alert("Update failed!"));
+ }
+
+</script>
+</body>
+</html>

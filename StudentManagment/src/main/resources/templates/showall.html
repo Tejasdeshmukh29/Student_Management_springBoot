@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Student list</title>
+    <link rel="stylesheet" href="/stylesheet.css">
+</head>
+<body>
+    <header>
+        <div class="hedermenu">
+            <button class="backbutton"><img src="/images/backbutton.png" alt="error"></button>
+            <h1> Update Student's Information</h1>
+        </div>
+        <br>
+        <br>
+        <div>
+            <table >
+                <thead>
+                    <tr>
+                        <th> PRN</th>
+                        <th>Roll_NO</th>
+                        <th>Name</th>
+                        <th>Department</th>
+                        <th>Address</th>
+                        <th>Phone_no</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr th:each="emp:${studentlist}">
+                        <td th:text="${emp.prn}"> 12311653</td>
+                        <td th:text="${emp.roll_no}">53</td>
+                        <td th:text="${emp.name}">Tejas Deshmukh</td>
+                        <td th:text="${emp.Department}">IT</td>
+                        <td th:text="${emp.address}">oswal building</td>
+                        <td th:text="${emp.Phone_no}">1234567890</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </header>
+    <script src="/script.js"></script>
+</body>
+</html>

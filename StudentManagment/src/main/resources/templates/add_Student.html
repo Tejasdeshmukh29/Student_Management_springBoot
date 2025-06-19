@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Student</title>
+    <link rel="stylesheet" th:href="@{/stylesheet.css}">
+</head>
+<body>
+<header>
+    <div class="hedermenu">
+        <button class="backbutton" id="back1"><img th:src="@{/images/backbutton.png}" alt="error"></button>
+        <h1>Add New Student</h1>
+    </div>
+</header>
+
+<h3>Enter Student details</h3>
+<form th:action="@{/savestu}" th:object="${student}" method="post">
+    <div class="submissiondiv">
+
+        <div>
+            <label>Name : </label>
+            <input type="text" placeholder="Name" class="inputbox" th:field="*{name}" />
+        </div>
+
+        <div>
+            <label>PRN : </label>
+            <input type="text" placeholder="PRN" class="inputbox" th:field="*{prn}" />
+        </div>
+
+        <div>
+            <label>Roll No : </label>
+            <input type="text" placeholder="ROLL NO" class="inputbox" th:field="*{roll_no}" />
+        </div>
+
+        <div>
+            <label>Department : </label>
+            <select class="inputbox" th:field="*{Department}">
+                <option value="Computer Science">Computer Science</option>
+                <option value="Information Technology">Information Technology</option>
+                <option value="Electronics and Telecommunication">Electronics and Telecommunication</option>
+                <option value="Mechanical Engineering">Mechanical Engineering</option>
+                <option value="Instrumentation">Instrumentation</option>
+                <option value="Chemical Engineering">Chemical Engineering</option>
+                <option value="Other">Other</option>
+            </select>
+        </div>
+
+        <div>
+            <label>Address : </label>
+            <input type="text" placeholder="Address" class="inputbox" th:field="*{address}" />
+        </div>
+
+        <div>
+            <label>Phone No : </label>
+            <input type="text" placeholder="Phone Number" class="inputbox" th:field="*{phone_no}" />
+        </div>
+
+        <button class="submitbutton" type="submit">Submit</button>
+    </div>
+</form>
+
+<script th:src="@{/script.js}"></script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+body
+{
+    background-color: #ededed;
+}
+
+.headerdiv
+{
+    text-align: center;
+    height: 8vh;
+    font-weight: bold;
+    font-size: larger;
+    background-color: #fff;
+}
+
+.central_div
+{
+    background-color:white;
+    height: 50vh;
+    width: 60vh;
+    display: flex;
+    margin-top: 110px;
+    border-radius: 30px;
+    margin-left: 700px;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.but
+{
+    height: 40px;
+    width: 20vw;
+    color: white;
+   background-color: rgb(129, 129, 255);
+   border-radius: 30px;
+    border: 0px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed; /* ensures fixed column widths */
+}
+
+tr {
+    border: 1px solid black;
+    padding: 10px;
+    word-wrap: break-word;
+    text-align: left;
+}
+
+
+.hedermenu
+{
+   display: flex;
+  background-color: #1a1919;
+  color: white;
+  height: 9vh;
+  border-radius: 20px;
+}
+
+.backbutton
+{
+    background-color: #1a1919;
+    margin-left: 20px;
+    margin-right: 50px;
+    height: 32px;
+    width: 32px;
+    border-radius: 100%;
+    margin-top: 20px;
+    border: transparent;
+}
+
+.submissiondiv
+{
+    height: 500px;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: rgb(255, 255, 255);
+    align-items: start;
+    margin-left: 500px;
+    border-radius: 30px;
+    padding-left: 30px;
+}
+
+label
+{
+    font-weight: bold;
+}
+
+.inputbox
+{
+    width: 300px;
+    height: 30px;
+    background-color: #fff;
+    border-radius: 10px;
+    padding-left:10px;
+}
+
+.submitbutton
+{
+    height: 35px;
+    width: 140px;
+    font-weight: 500;
+    border: transparent;
+    border-radius: 15px;
+    background-color: #b246ff;
+    color: white;
+}
+
+

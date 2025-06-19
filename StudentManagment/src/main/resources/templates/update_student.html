@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update_Student1</title>
+    <link rel="stylesheet" href="/stylesheet.css">
+</head>
+
+<body>
+
+<header>
+    <div class="hedermenu">
+        <button class="backbutton"><img src="/images/backbutton.png" alt="" onclick=window.location.replace("/")></button>
+        <h1> Verify Student</h1>
+    </div>
+</header>
+
+<h3>Enter Student PRN</h3>
+<div style="display: flex;">
+    <input type="text" id="prnInput" placeholder="Enter PRN" class="inputbox">
+    <button class="submitbutton" style="width: 200px; margin-left: 40px;" onclick="checkStudent()">Find Student</button>
+</div>
+
+<script>
+    function checkStudent() {
+        const prn = document.getElementById("prnInput").value;
+        if (!prn) return alert("Enter PRN");
+
+        fetch(`/api/student/${prn}`)
+            .then(res => {
+                if (!res.ok) throw new Error("Student not found");
+                return res.json();
+            })
+            .then(data => {
+                localStorage.setItem("studentToUpdate", JSON.stringify(data));
+                window.location.href = "/update_student2";
+            })
+            .catch(() => alert("Student not found!"));
+    }
+</script>
+</body>
+</html>

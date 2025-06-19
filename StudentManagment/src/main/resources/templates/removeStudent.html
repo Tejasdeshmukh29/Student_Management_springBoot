@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remove Student</title>
+    <link rel="stylesheet" href="/stylesheet.css">
+</head>
+
+<body>
+
+<header>
+    <div class="hedermenu">
+        <button class="backbutton"><img src="/images/backbutton.png" alt=""></button>
+        <h1> Remove Student</h1>
+    </div>
+</header>
+
+<h3>Enter Student PRN</h3>
+
+<!-- Form to search student -->
+<form th:action="@{/findStudent}" method="post" style="display: flex;">
+    <label for="prn">Enter PRN:</label>
+    <input type="text" name="prn" placeholder="12311644" class="inputbox" />
+    <button type="submit" class="submitbutton" style="width: 200px;margin-left: 40px;">
+        <b>Find Student</b>
+    </button>
+</form>
+
+<!-- Show message if present -->
+<div th:if="${message}">
+    <p th:text="${message}" style="color: green; font-weight: bold;"></p>
+</div>
+
+<!-- Show student info if available -->
+<div th:if="${student}">
+    <br>
+    <div class="table">
+        <table>
+            <tr>
+                <th>PRN</th>
+                <th>Roll_No</th>
+                <th>Name</th>
+                <th>Department</th>
+                <th>Address</th>
+                <th>Phone_no</th>
+            </tr>
+            <tr>
+                <td th:text="${student.prn}"></td>
+                <td th:text="${student.roll_no}"></td>
+                <td th:text="${student.name}"></td>
+                <td th:text="${student.Department}"></td>
+                <td th:text="${student.address}"></td>
+                <td th:text="${student.Phone_no}"></td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- Delete form -->
+    <br>
+    <form th:action="@{/removeStudent/{prn}(prn=${student.prn})}" method="post" style="text-align: center;">
+        <input type="hidden" name="_method" value="delete" />
+        <button type="submit" class="submitbutton" style="width: 200px;">Remove From Database</button>
+    </form>
+</div>
+
+<script src="script.js"></script>
+</body>
+
+</html>
