@@ -102,3 +102,47 @@ This project was developed as part of a **student learning exercise** to underst
 
 ---
 
+
+# 📸 Screenshots
+
+## 1. Home Page (Dashboard)
+![Home Page](screenshots/home_page.png)
+
+The Home Page provides quick access to all functionalities like **View All Students, Add Student, Update Student, and Remove Student** through easy-to-use navigation buttons and widgets.
+
+---
+
+## 2. Add Student Page
+![Add Student Page](screenshots/add_student.png)
+
+On this page, you can **add new student records** by entering the student's name, PRN, roll number, department, phone number, and address. After submission, the student will be added to the database.
+
+---
+
+## 3. View All Students Page
+![View All Students Page](screenshots/view_students.png)
+
+This page displays a **table of all students currently in the system.** You can see all student details like PRN, roll number, name, department, address, and phone number.
+
+---
+
+## 4. Update Student - PRN Search
+![Update PRN Search Page](screenshots/update_prn_search.png)
+
+Here, you can **search for a student by entering their PRN.** The system will retrieve their current details for editing.
+
+---
+
+## 5. Update Student - Edit Form
+![Update Student Form](screenshots/update_form.png)
+
+Once a student is found, you can **update their information** like name, roll number, department, address, and phone number. After updating, changes will be reflected in the database.
+
+---
+
+## 6. Remove Student Page
+![Remove Student Page](screenshots/remove_student.png)
+
+This page allows you to **remove a student record** by entering their PRN. Once removed, the student will no longer appear in the student list.
+
+---
